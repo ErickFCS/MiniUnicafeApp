@@ -6,7 +6,10 @@ import App from "./App";
  * @returns {{html: string}}
  */
 export const render = (url) => {
+    let validPaths = ["/"];
+    if (!validPaths.includes(url)) return "";
     return {
+        head: "",
         html: renderToString(
             <App />
         )

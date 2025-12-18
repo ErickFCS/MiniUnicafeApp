@@ -1,38 +1,44 @@
-name: deploymentPipeline
+name: "pipeline"
 
 on:
   push:
     branches:
-      - main
+      - "main"
   pull_request:
     branches:
-      - main
+      - "main"
     types:
-      - opened
-      - synchronize
+      - "opened"
+      - "synchronize"
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  pipeline:
+    runs-on: ubuntu-24.04
+    env:
+      SSR: "false"
+      PORT: 3000
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: '22'
-      - name: Install pnpm
-        run: npm install -g pnpm
-      - name: Install dependencies
-        run: pnpm install
-      - name: Run linting
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Installing dependencies
+        run: pnpm i --recursive --frozen-lockfile
+
+      - name: Running linting
         run: pnpm lint
-      - name: Build project
+      - name: Building frontend
         run: pnpm build
-      - name: SSG
-        run: pnpm ssg
-      - name: Deploy
+
+      - name: Deploy to render
+        if: ${{ github.event_name == 'push' }}
+        run: curl https://api.render.com/deploy/srv-${{secrets.RENDER_SERVICE_ID}}?key=${{secrets.RENDER_API_KEY}}
+
+      - name: Deploy to github pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/ssg
+          publish_dir: ./dist/client
