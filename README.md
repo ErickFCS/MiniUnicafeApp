@@ -1,18 +1,17 @@
 # Mini Unicafe App
 
-This project is a mini web application built with React, Vite, and Bootstrap. It allows users to vote in a cafe review system and to see the statistics as they vote.
-
-## Technologies Used
-
-- React: A JavaScript library for building user interfaces.
-- Vite: A next-generation front-end tool that provides a fast development server and optimized production builds.
-- Bootstrap: A popular CSS framework for building responsive and mobile-first websites.
+Small react app to test SSR(Server Side Rendering) vs CSR(Client Side Rendering)
 
 ## Features
 
 - Display a list of statistics for the given reviews.
 - Allow users to vote in a cafe review system.
 - Responsive design using Bootstrap.
+
+## Lives
+
+- [SSR Deploy](https://miniunicafeappssr.onrender.com "Server Side Rendering Deploy)
+- [CSR Deploy](https://erickfcs.github.io/MiniUnicafeApp/ "Client Side Rendering Deploy)
 
 ## Getting Started
 
@@ -22,38 +21,22 @@ This project is a mini web application built with React, Vite, and Bootstrap. It
 
 ### Installation
 
-1. Clone the repository:
-
-   ```bash
-   git clone <repository-url>
-   cd <repository-name>
-2. Start development vite server
-- With NPM
-
-   ```bash
-   npm install
-   npm run dev
-- With PNPM
-
-   ```bash
-   pnpm install
-   pnpm dev
-
-### Build
-
-1. Clone the repository:
-   
-   ```bash
-   git clone <repository-url>
-   cd <repository-name>
-2. Build the source
-- With NPM
-
-   ```bash
-   npm install
-   npm run build
-- With PNPM
-
-   ```bash
-   pnpm install
-   pnpm build
+1. Clone the repository
+2. Go into it.
+3. Install deps and build the frontend
+- With Pnpm or npm
+```bash
+pnpm i && pnpm build
+```
+or
+```bash
+npm install && npm build
+```
+4. Run the SSR of CSR with:
+```bash
+<npm or pnpm> start:ssr
+```
+or
+```bash
+<npm or pnpm> start:csr
+```
