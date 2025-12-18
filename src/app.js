@@ -1,9 +1,7 @@
 import express from "express";
 import htmlRenderer from "./middlewares/htmlRenderer.js";
 import { SSR } from "./utils/config.js";
-import sirv from "sirv";
 import { resolve } from "path";
-import compression from "compression";
 import { __dirname } from "./utils/config.js";
 
 const app = express();
@@ -20,8 +18,7 @@ if (SSR) {
     app.use(htmlRenderer);
 }
 
-app.use(compression);
-app.use(sirv(resolve(__dirname, "dist/client/"), { extensions: [] }));
+app.use(express.static(resolve(__dirname, "dist/client/")));
 
 
 export default app;
