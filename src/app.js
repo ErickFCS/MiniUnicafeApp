@@ -4,6 +4,7 @@ import { SSR } from "./utils/config.js";
 import sirv from "sirv";
 import { resolve } from "path";
 import compression from "compression";
+import { __dirname } from "./utils/config.js";
 
 const app = express();
 
@@ -20,7 +21,7 @@ if (SSR) {
 }
 
 app.use(compression);
-app.use(sirv(resolve(__dirname, "/dist/client/", { extensions: [] })));
+app.use(sirv(resolve(__dirname, "dist/client/"), { extensions: [] }));
 
 
 export default app;
