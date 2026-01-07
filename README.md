@@ -10,8 +10,8 @@ Small react app to test SSR(Server Side Rendering) vs CSR(Client Side Rendering)
 
 ## Lives
 
-- [SSR Deploy](https://miniunicafeappssr.onrender.com "Server Side Rendering Deploy)
-- [CSR Deploy](https://erickfcs.github.io/MiniUnicafeApp/ "Client Side Rendering Deploy)
+- [SSR Deploy](https://miniunicafeappssr.onrender.com "Server Side Rendering Deploy")
+- [CSR Deploy](https://erickfcs.github.io/MiniUnicafeApp/ "Client Side Rendering Deploy")
 
 ## Getting Started
 
