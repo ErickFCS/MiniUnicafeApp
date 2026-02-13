@@ -1,5 +1,9 @@
 # Mini Unicafe App
 
+<p align="center">
+  <img src="/overview.png" alt="Awesome Image" width="600">
+</p>
+
 Small react app to test SSR(Server Side Rendering) vs CSR(Client Side Rendering)
 
 ## Features
